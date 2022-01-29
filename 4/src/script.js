@@ -1,5 +1,6 @@
 import "./style.css";
 import * as THREE from "three";
+import gsap from "gsap";
 
 const scene = new THREE.Scene();
 
@@ -30,6 +31,8 @@ camera.lookAt(mesh.position);
 
 // Animations
 // let time = Date.now();
+gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 });
+
 const clock = new THREE.Clock();
 const tick = () => {
 	const elapsedTime = clock.getElapsedTime();
@@ -39,8 +42,8 @@ const tick = () => {
 	// Update objects
 	// mesh.rotation.z += -0.003 * deltaTime;
 	// mesh.rotation.x += -0.03;
-	camera.position.x = Math.sin(elapsedTime);
-	mesh.position.y = Math.cos(elapsedTime);
+	// camera.position.x = Math.sin(elapsedTime);
+	// mesh.position.y = Math.cos(elapsedTime);
 	renderer.render(scene, camera);
 	window.requestAnimationFrame(tick);
 };
